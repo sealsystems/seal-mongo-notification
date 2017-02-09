@@ -1,5 +1,8 @@
 # seal-mongo-notification
 
+[![CircleCI](https://circleci.com/gh/sealsystems/seal-mongo-notification.svg?style=svg)](https://circleci.com/gh/sealsystems/seal-mongo-notification)
+[![AppVeyor](https://ci.appveyor.com/api/projects/status/y05s6mdfll6thx0f?svg=true)](https://ci.appveyor.com/project/Plossys/seal-mongo-notification)
+
 An event emitter and receiver that uses MongoDB capped collections.
 
 ## Installation

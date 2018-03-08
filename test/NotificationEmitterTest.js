@@ -6,7 +6,7 @@ const assert = require('assertthat');
 
 const uuidv4 = require('uuidv4');
 
-const mongo = require('seal-mongo');
+const mongo = require('@sealsystems/mongo');
 
 const mongoHost = require('docker-host')().host;
 

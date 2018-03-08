@@ -1,4 +1,4 @@
-# seal-mongo-notification
+# @sealsystems/mongo-notification
 
 [![CircleCI](https://circleci.com/gh/sealsystems/seal-mongo-notification.svg?style=svg)](https://circleci.com/gh/sealsystems/seal-mongo-notification)
 [![AppVeyor](https://ci.appveyor.com/api/projects/status/y05s6mdfll6thx0f?svg=true)](https://ci.appveyor.com/project/Plossys/seal-mongo-notification)
@@ -8,26 +8,24 @@ An event emitter and receiver that uses MongoDB capped collections.
 ## Installation
 
 ```bash
-$ npm install seal-mongo-notification
+$ npm install @sealsystems/mongo-notification
 ```
 
 ## Quick start
 
-First you need to add a reference to seal-mongo-notification to your application.
+First you need to add a reference to @sealsystems/mongo-notification to your application.
 
 ```javascript
-const mongoNotification = require('seal-mongo-notification');
+const mongoNotification = require('@sealsystems/mongo-notification');
 ```
 
-Then connect to a MongoDB by calling the function `mongoNotification`. Provide an options object and a callback:
+Then connect to a MongoDB by calling the function `mongoNotification`. Provide an options object and returns a notification event emitter:
 
 ```javascript
-mongoNotification({
+const notification = await mongoNotification({
   url: 'mongodb://...',
   topic: 'messages',
   writeOnly: false
-}, (err, notification) => {
-  // ...
 });
 ```
 
@@ -67,11 +65,9 @@ notification.on('foo', (payload) => {
 If you only want to emit events but not receive any you can set the `writeOnly` option to `true` when connecting.
 
 ```javascript
-mongoNotification({
+const notification = await mongoNotification({
   ...
   writeOnly: true
-}, (err, notification) => {
-  // ...
 });
 ```
 

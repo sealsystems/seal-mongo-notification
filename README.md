@@ -7,7 +7,7 @@ An event emitter and receiver that uses MongoDB capped collections.
 
 ## Installation
 
-```bash
+```shell
 $ npm install @sealsystems/mongo-notification
 ```
 
@@ -75,6 +75,6 @@ const notification = await mongoNotification({
 
 To build this module use [roboter](https://www.npmjs.com/package/roboter).
 
-```bash
+```shell
 $ bot
 ```

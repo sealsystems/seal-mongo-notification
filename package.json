@@ -32,5 +32,8 @@
     "@sealsystems/eslint-config-es": "1.1.1",
     "roboter": "0.16.0",
     "roboter-server": "0.16.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

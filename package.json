@@ -1,5 +1,5 @@
 {
-  "name": "seal-mongo-notification",
+  "name": "@sealsystems/mongo-notification",
   "version": "1.0.5",
   "description": "An event emitter that uses MongoDB capped collections.",
   "author": {
@@ -20,18 +20,17 @@
   "main": "lib/mongoNotification.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sealsystems/seal-mongo-notification.git"
+    "url": "https://github.com/sealsystems/node-mongo-notification.git"
   },
   "dependencies": {
-    "async": "2.1.4",
-    "seal-mongo": "2.1.4",
-    "uuidv4": "0.4.0"
+    "@sealsystems/mongo": "2.1.7",
+    "uuidv4": "1.0.0"
   },
   "devDependencies": {
-    "assertthat": "0.8.3",
+    "assertthat": "1.0.0",
     "docker-host": "3.1.0",
-    "eslint-config-seal": "0.0.9",
-    "roboter": "0.14.4",
-    "roboter-server": "0.14.4"
+    "@sealsystems/eslint-config-es": "1.1.1",
+    "roboter": "0.16.0",
+    "roboter-server": "0.16.0"
   }
 }

@@ -1,17 +1,15 @@
 'use strict';
 
-const events = require('events');
+const { EventEmitter } = require('events');
 
 const assert = require('assertthat');
 const uuidv4 = require('uuidv4');
 
-const mongo = require('seal-mongo');
+const mongo = require('@sealsystems/mongo');
 
 const mongoHost = require('docker-host')().host;
 
 const mongoNotification = require('../lib/mongoNotification');
-
-const EventEmitter = events.EventEmitter;
 
 suite('mongoNotification', () => {
   let mongoUrl;
@@ -21,74 +19,52 @@ suite('mongoNotification', () => {
     done();
   });
 
-  suiteTeardown(function (done) {
+  suiteTeardown(async function () {
     this.timeout(10000);
-    mongo.db(mongoUrl, (errConnect, db) => {
-      if (errConnect) {
-        return done(errConnect);
-      }
 
-      db.dropDatabase((errDrop) => {
-        if (errDrop) {
-          return done(errDrop);
-        }
+    const db = await mongo.db(mongoUrl);
 
-        done();
-      });
-    });
+    await db.dropDatabase();
   });
 
-  test('is a function.', (done) => {
+  test('is a function.', async () => {
     assert.that(mongoNotification).is.ofType('function');
-    done();
   });
 
-  test('throws an error if options are missing.', (done) => {
-    assert.that(() => {
-      mongoNotification();
-    }).is.throwing('Options are missing.');
-    done();
+  test('throws an error if url is missing.', async () => {
+    await assert.that(async () => {
+      await mongoNotification({});
+    }).is.throwingAsync('Url is missing.');
   });
 
-  test('throws an error if url is missing.', (done) => {
-    assert.that(() => {
-      mongoNotification({});
-    }).is.throwing('Url is missing.');
-    done();
+  test('throws an error if topic is missing.', async () => {
+    await assert.that(async () => {
+      await mongoNotification({ url: mongoUrl });
+    }).is.throwingAsync('Topic is missing.');
   });
 
-  test('throws an error if topic is missing.', (done) => {
-    assert.that(() => {
-      mongoNotification({ url: mongoUrl });
-    }).is.throwing('Topic is missing.');
-    done();
-  });
+  test('returns an event emitter.', async () => {
+    const notificationEmitter = await mongoNotification({ url: mongoUrl, topic: uuidv4() });
 
-  test('throws an error if callback is missing.', (done) => {
-    assert.that(() => {
-      mongoNotification({ url: mongoUrl, topic: uuidv4() });
-    }).is.throwing('Callback is missing.');
-    done();
-  });
+    assert.that(notificationEmitter).is.instanceOf(EventEmitter);
 
-  test('returns an event emitter.', (done) => {
-    mongoNotification({ url: mongoUrl, topic: uuidv4() }, (err, notificationEmitter) => {
-      assert.that(err).is.null();
-      assert.that(notificationEmitter).is.instanceOf(EventEmitter);
+    await new Promise((resolve) => {
       notificationEmitter.on('EOT', () => {
-        notificationEmitter.close(done);
+        notificationEmitter.close(resolve);
       });
       notificationEmitter.emit('EOT', {});
     });
   });
 
-  test('returns a writeOnly event emitter.', (done) => {
-    mongoNotification({ url: mongoUrl, topic: uuidv4(), writeOnly: true }, (err, notificationEmitter) => {
-      assert.that(err).is.null();
-      assert.that(notificationEmitter).is.instanceOf(EventEmitter);
+  test('returns a writeOnly event emitter.', async () => {
+    const notificationEmitter = await mongoNotification({ url: mongoUrl, topic: uuidv4(), writeOnly: true });
+
+    assert.that(notificationEmitter).is.instanceOf(EventEmitter);
+
+    await new Promise((resolve) => {
       setTimeout(() => {
         assert.that(notificationEmitter.eventStream).is.undefined();
-        notificationEmitter.close(done);
+        notificationEmitter.close(resolve);
       }, 250);
     });
   });

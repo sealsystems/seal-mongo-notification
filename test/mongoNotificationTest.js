@@ -3,19 +3,21 @@
 const { EventEmitter } = require('events');
 
 const assert = require('assertthat');
+const nodeenv = require('nodeenv');
 const uuidv4 = require('uuidv4');
 
 const mongo = require('@sealsystems/mongo');
 
-const mongoHost = require('docker-host')().host;
-
 const mongoNotification = require('../lib/mongoNotification');
+
+let restore;
 
 suite('mongoNotification', () => {
   let mongoUrl;
 
   suiteSetup((done) => {
-    mongoUrl = `mongodb://${mongoHost}/${uuidv4()}`;
+    restore = nodeenv('TLS_UNPROTECTED', 'world');
+    mongoUrl = `mongodb://localhost:27717/${uuidv4()}`;
     done();
   });
 
@@ -25,6 +27,7 @@ suite('mongoNotification', () => {
     const db = await mongo.db(mongoUrl);
 
     await db.dropDatabase();
+    restore();
   });
 
   test('is a function.', async () => {
@@ -43,7 +46,9 @@ suite('mongoNotification', () => {
     }).is.throwingAsync('Topic is missing.');
   });
 
-  test('returns an event emitter.', async () => {
+  test('returns an event emitter.', async function () {
+    this.timeout(10 * 1000);
+
     const notificationEmitter = await mongoNotification({ url: mongoUrl, topic: uuidv4() });
 
     assert.that(notificationEmitter).is.instanceOf(EventEmitter);

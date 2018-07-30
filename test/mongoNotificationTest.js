@@ -3,19 +3,21 @@
 const { EventEmitter } = require('events');
 
 const assert = require('assertthat');
+const nodeenv = require('nodeenv');
 const uuidv4 = require('uuidv4');
 
 const mongo = require('@sealsystems/mongo');
 
-const mongoHost = require('docker-host')().host;
-
 const mongoNotification = require('../lib/mongoNotification');
+
+let restore;
 
 suite('mongoNotification', () => {
   let mongoUrl;
 
   suiteSetup((done) => {
-    mongoUrl = `mongodb://${mongoHost}/${uuidv4()}`;
+    restore = nodeenv('TLS_UNPROTECTED', 'world');
+    mongoUrl = `mongodb://localhost:27717/${uuidv4()}`;
     done();
   });
 
@@ -25,6 +27,7 @@ suite('mongoNotification', () => {
     const db = await mongo.db(mongoUrl);
 
     await db.dropDatabase();
+    restore();
   });
 
   test('is a function.', async () => {

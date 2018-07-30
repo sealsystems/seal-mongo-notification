@@ -3,22 +3,31 @@
 const { PassThrough } = require('stream');
 
 const assert = require('assertthat');
-
+const nodeenv = require('nodeenv');
 const uuidv4 = require('uuidv4');
 
 const mongo = require('@sealsystems/mongo');
 
-const mongoHost = require('docker-host')().host;
-
 const NotificationEmitter = require('../lib/NotificationEmitter');
 
+let restore;
+
 suite('NotificationEmitter', () => {
-  const mongoUrl = `mongodb://${mongoHost}/${uuidv4()}`;
+  const mongoUrl = `mongodb://localhost:27717/${uuidv4()}`;
   let database;
   let collection;
 
   suiteSetup(async () => {
+    restore = nodeenv('TLS_UNPROTECTED', 'world');
     database = await mongo.db(mongoUrl);
+  });
+
+  suiteTeardown(async function () {
+    // drop may need far more that 2000 ms
+    this.timeout(10000);
+
+    await database.dropDatabase();
+    restore();
   });
 
   setup(async () => {
@@ -28,11 +37,8 @@ suite('NotificationEmitter', () => {
     });
   });
 
-  suiteTeardown(async function () {
-    // drop may need far more that 2000 ms
-    this.timeout(10000);
-
-    await database.dropDatabase();
+  teardown(() => {
+    // Test
   });
 
   test('is a function.', async () => {

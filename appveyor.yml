@@ -1,3 +1,8 @@
+################################################################################
+# OPEN SOURCE MODULE
+# Remove the comment if you changed the build scripts!
+################################################################################
+
 version: "{build}"
 
 # Uncomment to debug via RDP
@@ -11,12 +16,11 @@ environment:
   NODE_VERSION: 8.9.4
 
 install:
-  # Install Node.js
   - ps: Install-Product node $env:NODE_VERSION x64
+  - npm install -g roboter-cli
+  - npm install
 
 build: off
 
 test_script:
-  - npm install
-  - npm install -g roboter-cli
   - npm run bot

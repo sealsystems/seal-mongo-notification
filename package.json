@@ -1,6 +1,6 @@
 {
   "name": "@sealsystems/mongo-notification",
-  "version": "1.0.6",
+  "version": "0.0.0",
   "description": "An event emitter that uses MongoDB capped collections.",
   "author": {
     "name": "SEAL Systems AG",

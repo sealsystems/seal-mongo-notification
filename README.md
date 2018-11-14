@@ -33,6 +33,7 @@ The options contain:
 - `url` mandatory, a connection string,
 - `topic` mandatory, the name of a topic collection
 - `writeOnly` optional, the open mode, default: false
+- Additional [@sealsystems/mongo](https://github.com/sealsystems/node-mongo) options
 
 ## Emit events
 

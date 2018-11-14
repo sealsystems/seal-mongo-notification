@@ -1,3 +1,14 @@
+## 1.2.0 (2018-11-14)
+
+### Features
+
+
+#### Pass additional [@sealsystems](https://github.com/sealsystems)/mongo connection options ([510b4ca](https://github.com/sealsystems/node-mongo-notification/commit/510b4ca))
+
+
+
+---
+
 ## 1.1.1 (2018-09-09)
 
 ### Bug Fixes

@@ -25,13 +25,13 @@
     "url": "https://github.com/sealsystems/node-mongo-notification.git"
   },
   "dependencies": {
-    "@sealsystems/mongo": "2.1.7",
+    "@sealsystems/mongo": "2.2.2",
     "uuidv4": "1.0.0"
   },
   "devDependencies": {
     "@sealsystems/eslint-config-es": "1.1.1",
     "assertthat": "1.0.0",
-    "mongodb-runner": "3.6.1",
+    "mongodb-runner": "4.7.1",
     "nodeenv": "1.0.0",
     "nyc": "12.0.2",
     "roboter": "0.16.0",

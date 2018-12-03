@@ -1,3 +1,14 @@
+## 1.2.1 (2018-12-03)
+
+### Bug Fixes
+
+
+#### Update dependencies ([e8201cb](https://github.com/sealsystems/node-mongo-notification/commit/e8201cb))
+
+
+
+---
+
 ## 1.2.0 (2018-11-14)
 
 ### Features

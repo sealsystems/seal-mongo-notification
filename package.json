@@ -25,7 +25,7 @@
     "url": "https://github.com/sealsystems/node-mongo-notification.git"
   },
   "dependencies": {
-    "@sealsystems/mongo": "2.2.1",
+    "@sealsystems/mongo": "2.2.2",
     "uuidv4": "1.0.0"
   },
   "devDependencies": {

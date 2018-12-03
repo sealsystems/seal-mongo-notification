@@ -1,6 +1,6 @@
 {
   "name": "@sealsystems/mongo-notification",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "An event emitter that uses MongoDB capped collections.",
   "author": {
     "name": "SEAL Systems AG",
@@ -31,7 +31,7 @@
   "devDependencies": {
     "@sealsystems/eslint-config-es": "1.1.1",
     "assertthat": "1.0.0",
-    "mongodb-runner": "3.6.1",
+    "mongodb-runner": "4.7.1",
     "nodeenv": "1.0.0",
     "nyc": "12.0.2",
     "roboter": "0.16.0",

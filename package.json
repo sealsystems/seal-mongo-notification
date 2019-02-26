@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "async": "2.1.4",
+    "filesize-parser": "1.5.0",
     "seal-mongo": "2.1.4",
     "uuidv4": "0.4.0"
   },

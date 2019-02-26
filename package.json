@@ -10,17 +10,16 @@
   "license": "MIT",
   "scripts": {
     "bot": "bot",
-    "release": "bot release && npm publish",
-    "release-minor": "bot release --type minor && npm publish",
-    "release-major": "bot release --type major && npm publish",
+    "licenses": "license-checker --production --csv",
+    "release": "semantic-release --branch ${CIRCLE_BRANCH}",
     "test": "bot test-units",
-    "coverage": "istanbul cover _mocha -- --recursive --ui tdd ",
+    "coverage": "nyc --reporter=lcov mocha",
     "report": "npm run coverage && if [[ $OSTYPE == darwin* ]]; then open=open; else open=xdg-open; fi && $open coverage/lcov-report/index.html"
   },
   "main": "lib/mongoNotification.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sealsystems/seal-mongo-notification.git"
+    "url": "https://github.com/sealsystems/node-mongo-notification.git"
   },
   "dependencies": {
     "async": "2.1.4",
@@ -31,7 +30,12 @@
     "assertthat": "0.8.3",
     "docker-host": "3.1.0",
     "eslint-config-seal": "0.0.9",
-    "roboter": "0.13.7",
-    "roboter-server": "0.13.7"
+    "license-checker": "24.0.1",
+    "nyc": "13.1.0",
+    "roboter": "0.16.0",
+    "roboter-server": "0.16.0"
+  },
+  "release": {
+    "extends": "@sealsystems/semantic-release-config/node-binary"
   }
 }

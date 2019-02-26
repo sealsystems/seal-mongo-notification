@@ -1,3 +1,14 @@
+## 1.0.8 (2019-02-26)
+
+### Bug Fixes
+
+
+#### fix build config ([3f6a53e](https://github.com/sealsystems/node-mongo-notification/commit/3f6a53e))
+
+
+
+---
+
 ## 1.0.7 (2019-02-26)
 
 ### Bug Fixes

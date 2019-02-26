@@ -7,6 +7,7 @@ const assert = require('assertthat');
 const uuidv4 = require('uuidv4');
 
 const mongo = require('seal-mongo');
+const setenv = require('@sealsystems/setenv');
 
 const mongoHost = require('docker-host')().host;
 
@@ -18,6 +19,7 @@ suite('NotificationEmitter', () => {
   let collection;
 
   suiteSetup((done) => {
+    setenv('TLS_UNPROTECTED', 'world');
     mongo.db(mongoUrl, (errConnect, db) => {
       if (errConnect) {
         return done(errConnect);

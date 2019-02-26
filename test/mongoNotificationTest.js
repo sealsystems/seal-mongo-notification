@@ -6,6 +6,7 @@ const assert = require('assertthat');
 const uuidv4 = require('uuidv4');
 
 const mongo = require('seal-mongo');
+const setenv = require('@sealsystems/setenv');
 
 const mongoHost = require('docker-host')().host;
 
@@ -17,6 +18,7 @@ suite('mongoNotification', () => {
   let mongoUrl;
 
   suiteSetup((done) => {
+    setenv('TLS_UNPROTECTED', 'world');
     mongoUrl = `mongodb://${mongoHost}/${uuidv4()}`;
     done();
   });

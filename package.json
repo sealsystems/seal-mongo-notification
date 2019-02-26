@@ -27,6 +27,7 @@
     "uuidv4": "0.4.0"
   },
   "devDependencies": {
+    "@sealsystems/setenv": "0.1.1",
     "assertthat": "0.8.3",
     "docker-host": "3.1.0",
     "eslint-config-seal": "0.0.9",

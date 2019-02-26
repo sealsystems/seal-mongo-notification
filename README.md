@@ -25,6 +25,7 @@ Then connect to a MongoDB by calling the function `mongoNotification`. Provide a
 const notification = await mongoNotification({
   url: 'mongodb://...',
   topic: 'messages',
+  collectionSize: '1MB',
   writeOnly: false
 });
 ```
@@ -32,6 +33,7 @@ const notification = await mongoNotification({
 The options contain:
 - `url` mandatory, a connection string,
 - `topic` mandatory, the name of a topic collection
+- `collectionSize` optional, the size of the capped collection, default: 1MB
 - `writeOnly` optional, the open mode, default: false
 - Additional [@sealsystems/mongo](https://github.com/sealsystems/node-mongo) options
 

@@ -1,3 +1,14 @@
+## 1.0.9 (2019-02-26)
+
+### Bug Fixes
+
+
+#### fixed npm publish ([45b5975](https://github.com/sealsystems/node-mongo-notification/commit/45b5975))
+
+
+
+---
+
 ## 1.0.8 (2019-02-26)
 
 ### Bug Fixes

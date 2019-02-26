@@ -1,3 +1,14 @@
+## 1.0.7 (2019-02-26)
+
+### Bug Fixes
+
+
+#### add config for collection size ([9295867](https://github.com/sealsystems/node-mongo-notification/commit/9295867))
+
+
+
+---
+
 ## 1.0.6 (2019-02-26)
 
 ### Bug Fixes

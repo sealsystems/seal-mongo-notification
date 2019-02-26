@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@sealsystems/mongo": "2.2.2",
+    "filesize-parser": "1.5.0",
     "uuidv4": "1.0.0"
   },
   "devDependencies": {

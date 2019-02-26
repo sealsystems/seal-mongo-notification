@@ -57,7 +57,9 @@ jobs:
           <<: *save-cache
       - run:
           name: Trigger release
-          command: npm run release
+          command: |
+            export NPM_TOKEN=$NPM_TOKEN_OLD
+            npm run release
 
 workflows:
   version: 2

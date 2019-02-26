@@ -39,12 +39,6 @@ jobs:
       - run:
           name: Run tests
           command: npm run bot
-      - run:
-          name: Run code coverage
-          command: npm run coverage
-      - store_artifacts:
-          path: coverage/lcov-report
-          destination: coverage
 
   release:
     docker:

@@ -38,6 +38,6 @@
     "roboter-server": "0.16.0"
   },
   "release": {
-    "extends": "@sealsystems/semantic-release-config/node-binary"
+    "extends": "@sealsystems/semantic-release-config/node-module"
   }
 }

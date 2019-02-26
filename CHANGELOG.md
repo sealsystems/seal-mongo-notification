@@ -1,3 +1,15 @@
+## 1.3.0 (2019-02-26)
+
+### Features
+
+
+#### Add option collectionSize. ([1a03a8d](https://github.com/sealsystems/node-mongo-notification/commit/1a03a8d))
+
+Size of caped collection may be changed by option collectionSize. Default is still 1MB.
+
+
+---
+
 ## 1.2.2 (2018-12-03)
 
 ### Bug Fixes

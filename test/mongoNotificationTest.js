@@ -4,11 +4,29 @@ const { EventEmitter } = require('events');
 
 const assert = require('assertthat');
 const nodeenv = require('nodeenv');
+const proxyquire = require('proxyquire');
 const uuidv4 = require('uuidv4');
 
 const mongo = require('@sealsystems/mongo');
 
+let sizeOk = false;
+let expectedSize;
+
 const mongoNotification = require('../lib/mongoNotification');
+const mongoNotificationMock = proxyquire('../lib/mongoNotification', {
+  '@sealsystems/mongo': {
+    db () {
+      return {
+        createCollection (topic, options) {
+          assert.that(options.size).is.equalTo(expectedSize);
+          sizeOk = true;
+
+          return {};
+        }
+      };
+    }
+  }
+});
 
 let restore;
 
@@ -28,6 +46,10 @@ suite('mongoNotification', () => {
 
     await db.dropDatabase();
     restore();
+  });
+
+  setup(async function () {
+    expectedSize = 1024 * 1024;
   });
 
   test('is a function.', async () => {
@@ -72,5 +94,26 @@ suite('mongoNotification', () => {
         notificationEmitter.close(resolve);
       }, 250);
     });
+  });
+
+  test('uses default collection size.', async () => {
+    try {
+      await mongoNotificationMock({ url: 'http://localhost', topic: 'huhu' });
+    } catch (e) {
+      /* eslint-disable no-empty */
+    } finally {
+      assert.that(sizeOk).is.true();
+    }
+  });
+
+  test('allows to overwrite default collection size.', async () => {
+    try {
+      expectedSize = 7 * 1024 * 1024;
+      await mongoNotificationMock({ url: 'http://localhost', topic: 'huhu', collectionSize: '7MB' });
+    } catch (e) {
+      /* eslint-disable no-empty */
+    } finally {
+      assert.that(sizeOk).is.true();
+    }
   });
 });

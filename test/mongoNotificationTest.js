@@ -5,7 +5,7 @@ const { EventEmitter } = require('events');
 const assert = require('assertthat');
 const nodeenv = require('nodeenv');
 const proxyquire = require('proxyquire');
-const uuidv4 = require('uuidv4');
+const uuid = require('uuid/v4');
 
 const mongo = require('@sealsystems/mongo');
 
@@ -15,9 +15,9 @@ let expectedSize;
 const mongoNotification = require('../lib/mongoNotification');
 const mongoNotificationMock = proxyquire('../lib/mongoNotification', {
   '@sealsystems/mongo': {
-    db () {
+    db() {
       return {
-        createCollection (topic, options) {
+        createCollection(topic, options) {
           assert.that(options.size).is.equalTo(expectedSize);
           sizeOk = true;
 
@@ -35,11 +35,11 @@ suite('mongoNotification', () => {
 
   suiteSetup((done) => {
     restore = nodeenv('TLS_UNPROTECTED', 'world');
-    mongoUrl = `mongodb://localhost:27717/${uuidv4()}`;
+    mongoUrl = `mongodb://localhost:27017/${uuid()}`;
     done();
   });
 
-  suiteTeardown(async function () {
+  suiteTeardown(async function() {
     this.timeout(10000);
 
     const db = await mongo.db(mongoUrl);
@@ -48,7 +48,7 @@ suite('mongoNotification', () => {
     restore();
   });
 
-  setup(async function () {
+  setup(async () => {
     expectedSize = 1024 * 1024;
   });
 
@@ -57,21 +57,25 @@ suite('mongoNotification', () => {
   });
 
   test('throws an error if url is missing.', async () => {
-    await assert.that(async () => {
-      await mongoNotification({});
-    }).is.throwingAsync('Url is missing.');
+    await assert
+      .that(async () => {
+        await mongoNotification({});
+      })
+      .is.throwingAsync('Url is missing.');
   });
 
   test('throws an error if topic is missing.', async () => {
-    await assert.that(async () => {
-      await mongoNotification({ url: mongoUrl });
-    }).is.throwingAsync('Topic is missing.');
+    await assert
+      .that(async () => {
+        await mongoNotification({ url: mongoUrl });
+      })
+      .is.throwingAsync('Topic is missing.');
   });
 
-  test('returns an event emitter.', async function () {
+  test('returns an event emitter.', async function() {
     this.timeout(10 * 1000);
 
-    const notificationEmitter = await mongoNotification({ url: mongoUrl, topic: uuidv4() });
+    const notificationEmitter = await mongoNotification({ url: mongoUrl, topic: uuid() });
 
     assert.that(notificationEmitter).is.instanceOf(EventEmitter);
 
@@ -84,7 +88,7 @@ suite('mongoNotification', () => {
   });
 
   test('returns a writeOnly event emitter.', async () => {
-    const notificationEmitter = await mongoNotification({ url: mongoUrl, topic: uuidv4(), writeOnly: true });
+    const notificationEmitter = await mongoNotification({ url: mongoUrl, topic: uuid(), writeOnly: true });
 
     assert.that(notificationEmitter).is.instanceOf(EventEmitter);
 

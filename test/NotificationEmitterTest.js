@@ -4,7 +4,7 @@ const { PassThrough } = require('stream');
 
 const assert = require('assertthat');
 const nodeenv = require('nodeenv');
-const uuidv4 = require('uuidv4');
+const uuid = require('uuid/v4');
 
 const mongo = require('@sealsystems/mongo');
 
@@ -13,7 +13,7 @@ const NotificationEmitter = require('../lib/NotificationEmitter');
 let restore;
 
 suite('NotificationEmitter', () => {
-  const mongoUrl = `mongodb://localhost:27717/${uuidv4()}`;
+  const mongoUrl = `mongodb://localhost:27017/${uuid()}`;
   let database;
   let collection;
 
@@ -22,7 +22,7 @@ suite('NotificationEmitter', () => {
     database = await mongo.db(mongoUrl);
   });
 
-  suiteTeardown(async function () {
+  suiteTeardown(async function() {
     // drop may need far more that 2000 ms
     this.timeout(10000);
 
@@ -31,7 +31,7 @@ suite('NotificationEmitter', () => {
   });
 
   setup(async () => {
-    collection = await database.createCollection(uuidv4(), {
+    collection = await database.createCollection(uuid(), {
       capped: true,
       size: 1024 * 1024
     });
@@ -46,14 +46,16 @@ suite('NotificationEmitter', () => {
   });
 
   test('throws an error if collection is missing.', async () => {
-    assert.that(() => {
-      /* eslint-disable no-new */
-      new NotificationEmitter({});
-      /* eslint-enable no-new */
-    }).is.throwing('Collection is missing.');
+    assert
+      .that(() => {
+        /* eslint-disable no-new */
+        new NotificationEmitter({});
+        /* eslint-enable no-new */
+      })
+      .is.throwing('Collection is missing.');
   });
 
-  test('emits an event.', async function () {
+  test('emits an event.', async function() {
     this.timeout(5 * 1000);
 
     const notificationEmitter = new NotificationEmitter({ collection });
@@ -70,7 +72,7 @@ suite('NotificationEmitter', () => {
     });
   });
 
-  test('does not emit an event if opened writeOnly', async function () {
+  test('does not emit an event if opened writeOnly', async function() {
     this.timeout(5 * 1000);
 
     const notificationEmitter = new NotificationEmitter({ collection, writeOnly: true });
@@ -142,7 +144,7 @@ suite('NotificationEmitter', () => {
         notificationEmitter.close(resolve);
       });
 
-      collection.insert({ event: 'status', das: 'ist', eine: 'komische', nachricht: true }, (errInsert) => {
+      collection.insertOne({ event: 'status', das: 'ist', eine: 'komische', nachricht: true }, (errInsert) => {
         assert.that(errInsert).is.falsy();
 
         notificationEmitter.emit('status', { foo: 'bar' }, (errEmit) => {
@@ -155,16 +157,16 @@ suite('NotificationEmitter', () => {
   test('throws MongoError', async () => {
     const myStream = new PassThrough();
     const myCollection = {
-      find () {
+      find() {
         return {
-          stream () {
+          stream() {
             return myStream;
           },
-          close () {
-          }
+          close() {}
         };
       },
-      async insert () {
+      async insertOne() {
+        // intentionally empty
       }
     };
     /* eslint-disable no-unused-vars */

@@ -9,15 +9,15 @@
   },
   "license": "MIT",
   "scripts": {
-    "prebot": "mongodb-runner start --topology=standalone --port=27717",
     "bot": "bot",
-    "postbot": "mongodb-runner stop",
-    "release": "semantic-release --branch ${CIRCLE_BRANCH}",
-    "test": "npm run bot test-units",
-    "precoverage": "mongodb-runner start --topology=standalone --port=27717",
-    "coverage": "nyc --reporter=text --reporter=lcov mocha",
-    "postcoverage": "mongodb-runner stop",
-    "report": "npm run coverage && if [[ $OSTYPE == darwin* ]]; then open=open; else open=xdg-open; fi && $open coverage/lcov-report/index.html"
+    "release": "release",
+    "test": "test-run",
+    "licenses": "license-checker --production --csv",
+    "lint": "lint",
+    "lint:fix": "lint-fix",
+    "test:coverage": "test-coverage",
+    "test:coverage:check": "test-coverage-check",
+    "test:report": "test-report"
   },
   "main": "lib/mongoNotification.js",
   "repository": {
@@ -25,22 +25,19 @@
     "url": "https://github.com/sealsystems/node-mongo-notification.git"
   },
   "dependencies": {
-    "@sealsystems/mongo": "2.2.2",
+    "@sealsystems/mongo": "2.2.4",
     "filesize-parser": "1.5.0",
-    "uuidv4": "1.0.0"
+    "uuid": "3.3.3"
   },
   "devDependencies": {
-    "@sealsystems/eslint-config-es": "1.1.1",
-    "assertthat": "1.0.0",
-    "mongodb-runner": "4.7.1",
+    "@sealsystems/eslint-config-es": "3.5.0",
+    "@sealsystems/mocha": "3.0.15",
+    "@sealsystems/semantic-release": "4.0.12",
     "nodeenv": "1.0.0",
-    "nyc": "12.0.2",
-    "proxyquire": "2.1.0",
-    "roboter": "0.16.0",
-    "roboter-server": "0.16.0"
+    "proxyquire": "2.1.0"
   },
   "release": {
-    "extends": "@sealsystems/semantic-release-config/node-module"
+    "extends": "@sealsystems/semantic-release/node-module"
   },
   "publishConfig": {
     "access": "public"

@@ -1,3 +1,14 @@
+## 1.3.1 (2019-09-10)
+
+### Bug Fixes
+
+
+#### Update dependencies ([a05fbba](https://github.com/sealsystems/node-mongo-notification/commit/a05fbba))
+
+
+
+---
+
 ## 1.3.0 (2019-02-26)
 
 ### Features

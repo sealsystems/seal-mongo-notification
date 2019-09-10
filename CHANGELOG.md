@@ -1,3 +1,14 @@
+## 1.3.2 (2019-09-10)
+
+### Bug Fixes
+
+
+#### update mongo dependency again ([5cdfc31](https://github.com/sealsystems/node-mongo-notification/commit/5cdfc31))
+
+
+
+---
+
 ## 1.3.1 (2019-09-10)
 
 ### Bug Fixes

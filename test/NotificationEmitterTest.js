@@ -13,7 +13,7 @@ const NotificationEmitter = require('../lib/NotificationEmitter');
 let restore;
 
 suite('NotificationEmitter', () => {
-  const mongoUrl = `mongodb://localhost:27717/${uuid()}`;
+  const mongoUrl = `mongodb://localhost:27017/${uuid()}`;
   let database;
   let collection;
 

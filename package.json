@@ -9,9 +9,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "prebot": "mongodb-runner start --topology=standalone --port=27717",
     "bot": "bot",
-    "postbot": "mongodb-runner stop",
     "release": "release",
     "test": "test-run",
     "precoverage": "mongodb-runner start --topology=standalone --port=27717",
@@ -37,7 +35,6 @@
     "@sealsystems/eslint-config-es": "3.5.0",
     "@sealsystems/mocha": "3.0.15",
     "@sealsystems/semantic-release": "4.0.12",
-    "mongodb-runner": "4.7.1",
     "nodeenv": "1.0.0",
     "proxyquire": "2.1.0"
   },

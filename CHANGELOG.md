@@ -1,3 +1,17 @@
+## 1.3.3 (2019-10-15)
+
+### Chores
+
+
+#### bump [@sealsystems](https://github.com/sealsystems)/mongo from 2.2.5 to 2.2.8 ([12d28f3](https://github.com/sealsystems/node-mongo-notification/commit/12d28f3))
+
+Bumps @sealsystems/mongo from 2.2.5 to 2.2.8.
+
+Signed-off-by: dependabot-preview[bot] <support@dependabot.com>
+
+
+---
+
 ## 1.3.2 (2019-09-10)
 
 ### Bug Fixes

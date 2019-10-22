@@ -1,3 +1,16 @@
+## 1.4.0 (2019-10-22)
+
+### Features
+
+
+#### PLS-431, [PLS-431](https://jira.sealsystems.de/jira/browse/PLS-431) ([3c58313](https://github.com/sealsystems/node-mongo-notification/commit/3c58313))
+
+- Updated dependencies
+ - Used `seal-node:oss-module-update`
+
+
+---
+
 ## 1.3.4 (2019-10-18)
 
 ### Chores

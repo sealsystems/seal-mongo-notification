@@ -1,3 +1,17 @@
+## 1.4.1 (2019-11-19)
+
+### Chores
+
+
+#### bump [@sealsystems](https://github.com/sealsystems)/mongo from 2.3.0 to 2.4.0 ([89805ab](https://github.com/sealsystems/node-mongo-notification/commit/89805ab))
+
+Bumps @sealsystems/mongo from 2.3.0 to 2.4.0.
+
+Signed-off-by: dependabot-preview[bot] <support@dependabot.com>
+
+
+---
+
 ## 1.4.0 (2019-10-22)
 
 ### Features

@@ -37,10 +37,6 @@ suite('NotificationEmitter', () => {
     });
   });
 
-  teardown(() => {
-    // Test
-  });
-
   test('is a function.', async () => {
     assert.that(NotificationEmitter).is.ofType('function');
   });

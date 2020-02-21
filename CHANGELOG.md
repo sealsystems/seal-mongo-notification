@@ -1,3 +1,24 @@
+## 1.4.2 (2020-02-21)
+
+### Chores
+
+
+#### Update build configuration ([8bd6863](https://github.com/sealsystems/node-mongo-notification/commit/8bd6863))
+
+#### bump [@sealsystems](https://github.com/sealsystems)/mongo from 2.4.0 to 2.4.1 ([cc230d1](https://github.com/sealsystems/node-mongo-notification/commit/cc230d1))
+
+Bumps @sealsystems/mongo from 2.4.0 to 2.4.1.
+
+Signed-off-by: dependabot-preview[bot] <support@dependabot.com>
+#### bump uuid from 3.3.3 to 3.4.0 ([2e9a659](https://github.com/sealsystems/node-mongo-notification/commit/2e9a659))
+
+Bumps uuid from 3.3.3 to 3.4.0.
+
+Signed-off-by: dependabot-preview[bot] <support@dependabot.com>
+
+
+---
+
 ## 1.4.1 (2019-11-19)
 
 ### Chores

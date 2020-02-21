@@ -33,10 +33,9 @@ let restore;
 suite('mongoNotification', () => {
   let mongoUrl;
 
-  suiteSetup((done) => {
+  suiteSetup(async () => {
     restore = nodeenv('TLS_UNPROTECTED', 'world');
     mongoUrl = `mongodb://localhost:27017/${uuid()}`;
-    done();
   });
 
   suiteTeardown(async function() {

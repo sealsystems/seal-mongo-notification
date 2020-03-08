@@ -1,3 +1,17 @@
+## 1.4.3 (2020-03-08)
+
+### Chores
+
+
+#### bump [@sealsystems](https://github.com/sealsystems)/mongo from 2.4.1 to 2.4.7 ([485278c](https://github.com/sealsystems/node-mongo-notification/commit/485278c))
+
+Bumps @sealsystems/mongo from 2.4.1 to 2.4.7.
+
+Signed-off-by: dependabot-preview[bot] <support@dependabot.com>
+
+
+---
+
 ## 1.4.2 (2020-02-21)
 
 ### Chores

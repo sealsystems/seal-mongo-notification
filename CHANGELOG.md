@@ -1,3 +1,14 @@
+## 1.4.4 (2020-03-09)
+
+### Chores
+
+
+#### yoed ([51a6fae](https://github.com/sealsystems/node-mongo-notification/commit/51a6fae))
+
+
+
+---
+
 ## 1.4.3 (2020-03-08)
 
 ### Chores

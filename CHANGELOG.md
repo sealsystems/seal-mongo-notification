@@ -1,3 +1,17 @@
+## 1.5.0 (2020-08-06)
+
+### Chores
+
+
+bump [@sealsystems](https://github.com/sealsystems)/mongo from 2.4.7 to 2.4.8 ([#41](https://github.com/sealsystems/node-mongo-notification/issues/41)) ([d11354e](https://github.com/sealsystems/node-mongo-notification/commit/d11354e))
+
+Trigger release ([b5fc32a](https://github.com/sealsystems/node-mongo-notification/commit/b5fc32a))
+
+### Features
+
+
+Update MongDB driver ([aae056a](https://github.com/sealsystems/node-mongo-notification/commit/aae056a))
+
 ## 1.4.4 (2020-03-09)
 
 ### Chores

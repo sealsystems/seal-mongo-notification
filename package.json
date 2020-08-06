@@ -25,14 +25,14 @@
     "url": "https://github.com/sealsystems/node-mongo-notification.git"
   },
   "dependencies": {
-    "@sealsystems/mongo": "2.4.8",
+    "@sealsystems/mongo": "3.0.0",
     "filesize-parser": "1.5.0",
     "uuid": "3.4.0"
   },
   "devDependencies": {
-    "@sealsystems/eslint-config-es": "3.6.2",
-    "@sealsystems/mocha": "4.1.3",
-    "@sealsystems/semantic-release": "4.0.20",
+    "@sealsystems/eslint-config-es": "3.6.3",
+    "@sealsystems/mocha": "4.1.4",
+    "@sealsystems/semantic-release": "4.3.0",
     "nodeenv": "1.1.0",
     "proxyquire": "2.1.3"
   },

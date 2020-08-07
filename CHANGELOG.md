@@ -1,3 +1,10 @@
+## 1.5.1 (2020-08-07)
+
+### Bug Fixes
+
+
+fixed crash with new mongo driver creating already existing collecions ([0f405d5](https://github.com/sealsystems/node-mongo-notification/commit/0f405d5))
+
 ## 1.5.0 (2020-08-06)
 
 ### Chores

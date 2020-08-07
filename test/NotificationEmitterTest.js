@@ -3,8 +3,8 @@
 const { PassThrough } = require('stream');
 
 const assert = require('assertthat');
-const nodeenv = require('nodeenv');
-const uuid = require('uuid/v4');
+const { nodeenv } = require('nodeenv');
+const { v4: uuidv4 } = require('uuid');
 
 const mongo = require('@sealsystems/mongo');
 
@@ -13,7 +13,7 @@ const NotificationEmitter = require('../lib/NotificationEmitter');
 let restore;
 
 suite('NotificationEmitter', () => {
-  const mongoUrl = `mongodb://localhost:27017/${uuid()}`;
+  const mongoUrl = `mongodb://localhost:27017/${uuidv4()}`;
   let database;
   let collection;
 
@@ -31,7 +31,7 @@ suite('NotificationEmitter', () => {
   });
 
   setup(async () => {
-    collection = await database.createCollection(uuid(), {
+    collection = await database.createCollection(uuidv4(), {
       capped: true,
       size: 1024 * 1024
     });

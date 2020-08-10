@@ -1,3 +1,12 @@
+## 1.5.2 (2020-08-10)
+
+### Chores
+
+
+bump [@sealsystems](https://github.com/sealsystems)/mongo from 3.0.0 to 3.0.1 ([#58](https://github.com/sealsystems/node-mongo-notification/issues/58)) ([98d2d6f](https://github.com/sealsystems/node-mongo-notification/commit/98d2d6f))
+
+trigger release ([d5c7a5f](https://github.com/sealsystems/node-mongo-notification/commit/d5c7a5f))
+
 ## 1.5.1 (2020-08-07)
 
 ### Bug Fixes

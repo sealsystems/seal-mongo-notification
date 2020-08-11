@@ -74,6 +74,7 @@ const notification = await mongoNotification({
 });
 ```
 
+
 ## Running the build
 
 To build this module use [roboter](https://www.npmjs.com/package/roboter).

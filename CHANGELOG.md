@@ -1,3 +1,10 @@
+## 1.5.4 (2020-12-21)
+
+### Chores
+
+
+Trigger release ([0ff3841](https://github.com/sealsystems/node-mongo-notification/commit/0ff3841))
+
 ## 1.5.3 (2020-08-11)
 
 ### Chores

@@ -22,7 +22,7 @@
   "main": "lib/mongoNotification.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sealsystems/node-mongo-notification.git"
+    "url": "https://github.com/sealsystems/mongo-notification"
   },
   "dependencies": {
     "@sealsystems/mongo": "3.0.2",

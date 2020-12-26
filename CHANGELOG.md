@@ -1,3 +1,12 @@
+## 1.5.5 (2020-12-26)
+
+### Chores
+
+
+Update build configuration ([43ff54a](https://github.com/sealsystems/node-mongo-notification/commit/43ff54a))
+
+Update build configuration ([ebd89cf](https://github.com/sealsystems/node-mongo-notification/commit/ebd89cf))
+
 ## 1.5.4 (2020-12-21)
 
 ### Chores

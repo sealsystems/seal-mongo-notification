@@ -1,3 +1,10 @@
+## 1.5.6 (2021-01-16)
+
+### Chores
+
+
+Update build config ([52b7d3d](https://github.com/sealsystems/node-mongo-notification/commit/52b7d3d))
+
 ## 1.5.5 (2020-12-26)
 
 ### Chores

@@ -1,3 +1,10 @@
+## 1.5.7 (2021-01-17)
+
+### Chores
+
+
+bump [@sealsystems](https://github.com/sealsystems)/mongo from 3.0.2 to 3.0.6 ([#87](https://github.com/sealsystems/node-mongo-notification/issues/87)) ([5d0c660](https://github.com/sealsystems/node-mongo-notification/commit/5d0c660))
+
 ## 1.5.6 (2021-01-16)
 
 ### Chores

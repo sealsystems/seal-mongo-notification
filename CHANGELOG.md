@@ -1,3 +1,12 @@
+## 1.5.10 (2021-01-17)
+
+### Chores
+
+
+bump node-fetch from 2.6.0 to 2.6.1 ([05e6f68](https://github.com/sealsystems/node-mongo-notification/commit/05e6f68))
+
+bump uuid from 8.3.0 to 8.3.2 ([3a46af7](https://github.com/sealsystems/node-mongo-notification/commit/3a46af7))
+
 ## 1.5.9 (2021-01-17)
 
 ### Chores

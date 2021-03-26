@@ -1,3 +1,10 @@
+## 1.5.15 (2021-03-26)
+
+### Chores
+
+
+bump [@sealsystems](https://github.com/sealsystems)/mongo from 3.0.12 to 3.0.14 ([#112](https://github.com/sealsystems/node-mongo-notification/issues/112)) ([8295e00](https://github.com/sealsystems/node-mongo-notification/commit/8295e00))
+
 ## 1.5.14 (2021-03-26)
 
 ### Chores
